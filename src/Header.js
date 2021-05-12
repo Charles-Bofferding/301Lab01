@@ -10,7 +10,7 @@ class Header extends React.Component {
       <div id="header">
         <h1>This is where the Header goes</h1>
       </div>
-    )
+    );
   }
 }
 
