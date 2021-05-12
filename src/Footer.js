@@ -10,7 +10,7 @@ class Footer extends React.Component {
       <div id="footer">
         <p>Created by Charles Bofferding</p>
       </div>
-    )
+    );
   }
 }
 

@@ -1,54 +1,44 @@
 import React from 'react';
-
-let theBeasts = [{
-  "image_url": "http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg",
-  "title": "UniWhal",
-  "description": "A unicorn and a narwhal nuzzling their horns",
-  "keyword": "narwhal",
-  "horns": 1
-},
-{
-  "image_url": "https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80",
-  "title": "Rhino Family",
-  "description": "Mother (or father) rhino with two babies",
-  "keyword": "rhino",
-  "horns": 2
-},
-{
-  "image_url": "https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg",
-  "title": "Unicorn Head",
-  "description": "Someone wearing a creepy unicorn head mask",
-  "keyword": "unicorn", 
-  "horns": 1
-}];
+import Card from 'react-bootstrap/Card';
 
 class HornedBeast extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      likes: 0
+    };
   }
 
   render() {
     return (
-      <div class="horned-beast">
-        <h2>UniWhal</h2>
-        <img class='beast-image'
-            src = 'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'
-            alt = 'narwhal'
-            title = 'UniWhal'>
-        </img>
-        <p>A unicorn and a narwhal nuzzling their horns</p>
 
-        <h2>Rhino Family</h2>
-        <img class='beast-image'
-            src = 'https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80'
-            alt = 'rhino'
-            title = 'Rhino Family'>
-        </img>
-        <p>Mother (or father) rhino with two babies</p>
-      </div>
-      
-    )
+
+      <Card style = {{ width: '300px' }}>
+        <Card.Img variant="top"
+          src = {this.props.src}
+          alt = {this.props.keyword}
+          onClick = {this.likeIt}
+          style = {{ width: '300px' }}
+        />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>{this.props.description}</Card.Text>
+        </Card.Body>
+        <div>
+          <img className = 'heart' src = 'https://cdn.pixabay.com/photo/2013/07/13/10/50/heart-157895_960_720.png'/>
+          <h1 className = 'likeCounter'>{this.state.likes}</h1>
+        </div>
+        <br />
+      </Card>
+
+    );
   }
+
+  //Function to handle the image getting clicked
+  likeIt = () => {
+    this.setState({ likes: this.state.likes + 1 });
+  }
+
 }
 
 export default HornedBeast;
