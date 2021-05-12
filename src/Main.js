@@ -11,15 +11,15 @@ class Main extends React.Component {
     return (
       <div id='main'>
         <CardColumns>
-          {this.data.map((beast, idx) => {
-            return <HornedBeast
+          {this.data.map((beast, idx) => (
+            <HornedBeast
               key = {idx}
               title = {beast.title}
               src = {beast.image_url}
               alt = {beast.keyword}
               description = {beast.description}
-            />;
-          })}
+            />
+          ))}
         </CardColumns>
       </div>
     );

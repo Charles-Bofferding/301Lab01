@@ -13,7 +13,7 @@ class HornedBeast extends React.Component {
     return (
 
 
-      <Card style = {{ width: '300px' }}>
+      <Card bg='primary' style = {{ width: '300px' }}>
         <Card.Img variant="top"
           src = {this.props.src}
           alt = {this.props.keyword}
