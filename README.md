@@ -1,4 +1,16 @@
-Lab 02 Time estimates
+## Lab 02 Time estimates
+
+# Number and name of feature: lab3.1 Display a Modal
+
+Estimate of time needed to complete: 1.5 hours
+
+Start time: 2:15 pm
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+## Lab 02 Time estimates
 
 # Number and name of feature: Lab2.1 Display images
 Estimate of time needed to complete: 30 min
@@ -15,8 +27,8 @@ Actual time needed to complete: 15 min
 # Number and name of feature: Lab2.3 Bootstrap
 Estimate of time needed to complete: 1 hour
 Start time: 4:15 pm
-Finish time: _____
-Actual time needed to complete: _____
+Finish time: 8pm
+Actual time needed to complete: around 2 hours working time
 
 
 
