@@ -10,11 +10,9 @@ class Main extends React.Component {
     };
   }
 
-  
+
 
   render() {
-    console.log(this.state.data);
-    console.log(this.props.dataToMain);
     return (
       <div id='main'>
         <CardColumns>
@@ -25,6 +23,8 @@ class Main extends React.Component {
               src = {beast.image_url}
               alt = {beast.keyword}
               description = {beast.description}
+              horns={beast.horns}
+              selectBeast={() => this.props.selectBeast(beast)}
             />
           ))}
         </CardColumns>
