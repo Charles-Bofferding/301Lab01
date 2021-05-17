@@ -8,7 +8,7 @@ class Header extends React.Component {
   render() {
     return (
       <div id="header">
-        <h1>This is where the Header goes</h1>
+        <h1>Horned Gallery</h1>
       </div>
     );
   }
