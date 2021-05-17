@@ -5,9 +5,6 @@ import HornedBeast from './HornedBeast';
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: props.dataToMain
-    };
   }
 
 
@@ -16,7 +13,7 @@ class Main extends React.Component {
     return (
       <div id='main'>
         <CardColumns>
-          {this.state.data.map((beast, idx) => (
+          {this.props.dataToMain.map((beast, idx) => (
             <HornedBeast
               key = {idx}
               title = {beast.title}

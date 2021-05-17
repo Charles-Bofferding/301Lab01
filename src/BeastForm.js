@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 class BeastForm extends React.Component {
   constructor(props) {
@@ -13,11 +12,7 @@ class BeastForm extends React.Component {
   handleHorns = (event) => {
     let hornCount = event.target.value;
     this.setState({ numberOfHorns: hornCount });
-  }
-
-  handleSubmit = (event) => {
-    console.log(this.state.numberOfHorns);
-    this.props.setSearch(event.target.value);
+    this.props.setSearch(event);
   }
 
   render() {
@@ -25,14 +20,12 @@ class BeastForm extends React.Component {
       <Form>
         <Form.Label>Filter By Horns</Form.Label>
         <Form.Control onChange={this.handleHorns} as="select">
+          <option>0</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
           <option>100</option>
         </Form.Control>
-        <Button onClick={this.handleSubmit}>
-          Submit Form
-        </Button>
       </Form>
     );
   }

@@ -26,41 +26,55 @@ class App extends React.Component {
     this.setState({ target: beast });
   }
 
-  setSearch = (search) => {
-    this.setState({ hornSearch: search }, this.filterData); // we are running the filterData method as a callback.
+  //Input of E because we will tie this as a reaction to an update in the form through an event
+  setSearch = (e) => {
+    let hornSearchVal = parseInt(e.target.value);
+    this.setState({ hornSearch: hornSearchVal }, this.filterData);
   }
 
   filterData = () => {
     const filterBeasts = (beast) => {
       // filter our array based on a title
-      console.log(beast.title, this.state.searchTitle);
-      if (beast.horns === (this.state.hotnSearch)) {
+      if (beast.horns === (this.state.hornSearch)) {
+        console.log('I saw a match');
         return true;
+      } else {
+        return false;
       }
-      return false;
     };
 
+    console.log(this.state.hornSearch);
     if (this.state.hornSearch) {
-      this.setState({ data: this.state.data.filter(filterBeasts) });
+      console.log('I changed the data state');
+      this.setState({ data: dataIn.filter(filterBeasts) });
     } else {
       this.setState({ data: dataIn });
     }
   }
 
+  handleClose = () => {
+    console.log('handleClose function run');
+    this.setState({ targetShow: false });
+  }
+
   render(){
     //Return back everything wrapped in only one element or everything breaks
-    console.log(this.state.target);
     return (
       <div id = 'app'>
         <SelectedBeast
-          beastTarget={this.state.target}
-          show={this.state.targetShow}
+          image_url={this.state.target.image_url}
+          title={this.state.target.title}
+          description={this.state.target.description}
+          keyword={this.state.target.keyword}
+          targetShow={this.state.targetShow}
+          handleClose={this.handleClose}
         />
         <BeastForm setSearch={this.setSearch} />
         <Header />
         <Main
-          dataToMain={this.state.data}
+          dataToMain= {this.state.data}
           selectBeast = {this.selectBeast}
+          handleClose = {this.handleClose}
         />
         <Footer />
       </div>
